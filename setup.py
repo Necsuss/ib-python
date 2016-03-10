@@ -9,6 +9,8 @@ data, submit orders for stocks and options, and more.
 """
 from distutils.core import setup
 
+import ib
+
 
 classifiers = """
 Development Status :: 5 - Production/Stable
@@ -33,17 +35,17 @@ try:  # Python 3
 except ImportError:  # Python 2
     from distutils.command.build_py import build_py
 
-setup(cmdclass = {'build_py': build_py},
-    name = 'IbPy',
-    version = "0", # make value
-    description = doclines[0],
-    author = 'Troy Melhase',
-    author_email = 'troy@gci.net',
-    url = 'http://code.google.com/p/ibpy/',
-    license = 'BSD License',
-    packages = ['ib', 'ib/lib', 'ib/ext', 'ib/opt', 'ib/sym'],
-    classifiers = filter(None, classifiers.split('\n')),
-    long_description = '\n'.join(doclines[2:]),
-    platforms = ['any'],
-    download_url = 'http://ibpy.googlecode.com/files/:release_file:',
+setup(
+    cmdclass={'build_py': build_py},
+    name='ib-python',
+    version=ib.__version__,
+    description=doclines[0],
+    author='Ratson',
+    author_email='contact@ratson.name',
+    url='https://github.com/ratson/ib-python',
+    license='BSD License',
+    packages=['ib', 'ib/lib', 'ib/ext', 'ib/opt', 'ib/sym'],
+    classifiers=filter(None, classifiers.split('\n')),
+    long_description='\n'.join(doclines[2:]),
+    platforms=['any'],
 )
